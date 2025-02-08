@@ -263,6 +263,14 @@ ul[data-type="taskList"] ul[data-type="taskList"] {
   outline: 3px solid var(--purple);
 }
 
+.tiptap a {
+  @apply text-blue-600;
+  cursor: pointer;
+}
+
+.tiptap a:hover {
+  @apply underline;
+}
 
 
 
