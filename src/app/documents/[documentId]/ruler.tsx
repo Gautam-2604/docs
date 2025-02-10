@@ -54,9 +54,10 @@ const Ruler = () => {
     const handleRightDoubleClick = ()=>{
         setRightMargin(56)
     }
+    
   return (
-    <div className='h-6 border-b border-gray-300 flex items-end relative select-none print:hidden' ref={rulerRef} onMouseMove={handleMouseEvent} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} >
-      <div className='max-w-[816px] mx-auto w-full h-full relative' id='ruler-container'>
+    <div className='h-6 border-b border-gray-300 flex items-end relative select-none print:hidden w[816px] mx-auto' ref={rulerRef} onMouseMove={handleMouseEvent} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} >
+      <div className='w-full h-full relative' id='ruler-container'>
         <Marker 
         position={leftMargin}
         isLeft={true}
