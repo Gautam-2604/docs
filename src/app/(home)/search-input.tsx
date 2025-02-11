@@ -39,6 +39,7 @@ const SearchInput = () => {
         {value && (
             <Button
             onClick={handleClear}
+            
             type='button'
             variant='ghost'
             size='icon'
