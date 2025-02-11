@@ -3,12 +3,28 @@ import { Button } from '@/components/ui/button'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { templates } from '@/constants/templates'
 import { cn } from '@/lib/utils'
-import React from 'react'
+import { useMutation } from 'convex/react'
+import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
+import { api } from '../../../convex/_generated/api'
 
 
 
 const TemplateGallery = () => {
-     const isCreating = false
+  const router = useRouter()
+  const create = useMutation(api.documents.create )
+ const [isCreating, setIsCreating] = useState(false)
+
+ const onTemplateClick = (title: string, initialContent: string)=>{
+  setIsCreating(true)
+  create({title, initialContent})
+    .then((documentId)=>{
+      router.push(`/documents/${documentId}`)
+    })
+    .finally(()=>{
+      setIsCreating(false)
+    })
+ }
   return (
     <div className='bg-[#F1F3F4]'>
       <div className='max-w-screen-xl mx-auto px-16  py-6 flex flex-col gap-y-4'>
@@ -20,7 +36,7 @@ const TemplateGallery = () => {
                         <div className={cn("aspect-[3/4] flex flex-col gap-y-2.5",
                         isCreating && "pointer-events-none opacity-50"
                         )}>
-                            <button disabled={isCreating} onClick={()=>{}} style={{
+                            <button disabled={isCreating} onClick={()=>onTemplateClick(template.label, "")} style={{
                                 backgroundImage:`url(${template.imgUrl})`,
                                 backgroundSize:"cover",
                                 backgroundPosition:"center",
