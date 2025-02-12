@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import SearchInput from './search-input'
-import {UserButton} from '@clerk/nextjs'
+import {UserButton, OrganizationSwitcher} from '@clerk/nextjs'
  
  const Navbar = () => {
    return (
@@ -17,7 +17,15 @@ import {UserButton} from '@clerk/nextjs'
 
         </div>
         <SearchInput />
+        <div className='flex gap-3 items-center pl-6'>
+        <OrganizationSwitcher
+        afterCreateOrganizationUrl="/"
+        afterLeaveOrganizationUrl="/"
+        afterSelectOrganizationUrl="/"
+        afterSelectPersonalUrl="/"
+         />
         <UserButton />
+        </div>
         
     </nav>
    )
