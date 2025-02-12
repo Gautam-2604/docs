@@ -30,3 +30,25 @@ export const get = query({
     return await ctx.db.query("documents").paginate(args.paginationOpts);
   },
 });
+
+export const removeById= mutation({
+  args:{ id: v.id("documents")},
+  handler: async(ctx, args)=>{
+     const user = ctx.auth.getUserIdentity()
+     if(!user){
+      throw new ConvexError("Unauthorised")
+     }
+
+     const document = await ctx.db.get(args.id)
+     if(!document){
+      throw new ConvexError("Document unfound")
+     }
+
+     const isOwner = document.ownerId === user.subject
+     if(!isOwner){
+      throw new ConvexError("Mazak hai kya kuch bhi") 
+     }
+
+     return await ctx.db.delete(args.id)
+  }
+})

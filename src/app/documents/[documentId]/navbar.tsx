@@ -9,7 +9,13 @@ import { BsFilePdf } from 'react-icons/bs'
 import { useEditorStore } from '@/store/use-editor-store'
 
 
-const {editor }= useEditorStore()
+
+
+
+
+
+const Navbar = () => {
+    const {editor} = useEditorStore()
 
 const onDownload = (blob: Blob, filename: string)=>{
     const url = URL.createObjectURL(blob)
@@ -33,18 +39,6 @@ const onSaveJSON = ()=>{
     onDownload(blob, `document.json`)
 
 }
-const onSaveHTML = ()=>{
-    if(!editor){
-        return;
-    }
-    const content = editor.getHTML()
-    const blob = new Blob([content],{
-        type:"text/html"
-    })
-    onDownload(blob, `document.html`)
-
-}
-
 const onSaveText = ()=>{
     if(!editor){
         return;
@@ -56,7 +50,17 @@ const onSaveText = ()=>{
     onDownload(blob, `document.txt`)
 
 }
-const Navbar = () => {
+const onSaveHTML = ()=>{
+    if(!editor){
+        return;
+    }
+    const content = editor.getHTML()
+    const blob = new Blob([content],{
+        type:"text/html"
+    })
+    onDownload(blob, `document.html`)
+
+}
   return (
     <nav className='flex items-center justify-between'>
         <div className='flex gap-2 items-center'>
