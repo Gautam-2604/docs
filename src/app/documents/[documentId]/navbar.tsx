@@ -146,7 +146,7 @@ const onSaveHTML = ()=>{
             </div>
         </div>
         <div className='flex gap-3 items-center pl-6'>
-            <Avatars />
+            {/* <Avatars /> */}
         <OrganizationSwitcher
         afterCreateOrganizationUrl="/"
         afterLeaveOrganizationUrl="/"
