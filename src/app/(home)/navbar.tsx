@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import React from 'react'
 import SearchInput from './search-input'
-import {UserButton, OrganizationSwitcher} from '@clerk/nextjs'
  
  const Navbar = () => {
    return (

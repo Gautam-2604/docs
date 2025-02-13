@@ -3,7 +3,7 @@ import {type ColorResult, CirclePicker} from 'react-color'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
 import { useEditorStore } from '@/store/use-editor-store'
-import { BoldIcon, ChevronDownIcon, HighlighterIcon, Icon, ImageIcon, ItalicIcon, Link2Icon, ListTodoIcon, LucideIcon, MessageSquare, MessageSquareIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, SearchIcon, SpellCheck2Icon, UnderlineIcon, Undo2Icon, UploadIcon } from 'lucide-react'
+import { BoldIcon, ChevronDownIcon, HighlighterIcon, ImageIcon, ItalicIcon, Link2Icon, ListTodoIcon, LucideIcon, MessageSquareIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, SearchIcon, SpellCheck2Icon, UnderlineIcon, Undo2Icon, UploadIcon } from 'lucide-react'
 import React, { useState } from 'react'
 import {Dialog, DialogContent, DialogFooter, DialogTitle, DialogHeader} from '@/components/ui/dialog'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
@@ -17,7 +17,7 @@ const ImageButton = () =>{
   const {editor} = useEditorStore()
   const [isDialogueOpen, setIsDialogueOpen] = useState(false)
   const [imageUrl, setImageUrl] = useState("")
-   const [value, setValue] = useState(editor?.getAttributes("link").href || "")
+   const [setValue] = useState(editor?.getAttributes("link").href || "")
 
    const onChange = (src: string) =>{
     editor?.chain().focus().setImage({src}).run()

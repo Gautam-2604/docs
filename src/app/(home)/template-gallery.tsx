@@ -1,5 +1,4 @@
 'use client'
-import { Button } from '@/components/ui/button'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { templates } from '@/constants/templates'
 import { cn } from '@/lib/utils'

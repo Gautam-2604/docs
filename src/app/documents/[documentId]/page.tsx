@@ -4,8 +4,7 @@ import Toolbar from './toolbar'
 import Navbar from './navbar'
 import { Room } from './room'
 
-const DocumentIdPage = async ({params}:{params:Promise<{documentId: string}>}) => {
-    const documentId = (await params).documentId
+const DocumentIdPage = async () => {
   return (
     
     <div className='min-h-screen bg-[#FAFBFD]'>

@@ -8,7 +8,6 @@ import { FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIcon, GlobeI
 import { BsFilePdf } from 'react-icons/bs'
 import { useEditorStore } from '@/store/use-editor-store'
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
-import { Avatars } from './avatars'
 
 
 

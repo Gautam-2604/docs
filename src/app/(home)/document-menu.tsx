@@ -11,7 +11,7 @@ interface DocuemntMenuProps {
     onNewTab:(id:Id<"documents">)=>void 
 }
 
-const DocumentMenu = ({documentId, title, onNewTab}: DocuemntMenuProps) => {
+const DocumentMenu = ({documentId, onNewTab}: DocuemntMenuProps) => {
   return (
     <DropdownMenu>
         <DropdownMenuTrigger asChild>
