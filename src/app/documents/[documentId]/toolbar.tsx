@@ -333,8 +333,8 @@ const Toolbar = () => {
     {
       label:"Comment",
       icon: MessageSquareIcon,
-      onClick : ()=>console.log('Comment kr na bhai'),
-      isActive: false
+      onClick : ()=>editor?.chain().focus().addPendingComment().run(),
+      isActive: editor?.isActive("liveblocksCommentMark")
 
     },
     {

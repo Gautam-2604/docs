@@ -18,8 +18,11 @@ import FontFamily from '@tiptap/extension-font-family'
 import Underline from '@tiptap/extension-underline'
 import { useEditorStore } from '@/store/use-editor-store'
 import Ruler from './ruler'
+import { useLiveblocksExtension } from "@liveblocks/react-tiptap";
+import { Threads } from './threads'
 
 const Editor = () => {
+  const liveblocks = useLiveblocksExtension();
   const {setEditor} = useEditorStore()
   const editor = useEditor({
   editorProps:{
@@ -49,9 +52,9 @@ const Editor = () => {
   onContentError({editor}) {
     setEditor(editor)
   },
-  extensions: [StarterKit, TaskItem.configure({nested: true}), TaskList, Table.configure({resizable: true}), TableRow, TableHeader, TableCell, Image, ImageResize, Underline, FontFamily, TextStyle, Color, Highlight, Link.configure({openOnClick: false,
+  extensions: [StarterKit.configure({history: false}), TaskItem.configure({nested: true}), TaskList, Table.configure({resizable: true}), TableRow, TableHeader, TableCell, Image, ImageResize, Underline, FontFamily, TextStyle, Color, Highlight, Link.configure({openOnClick: false,
                   autolink: true,
-                  defaultProtocol: 'https',})],
+                  defaultProtocol: 'https',}), liveblocks],
   content: `<table>
   <tbody>
     <tr>
@@ -72,6 +75,7 @@ const Editor = () => {
       <Ruler />
       <div className='min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0'>
         <EditorContent editor={editor} />
+        <Threads editor={editor} />
       </div>
     </div>
   )
